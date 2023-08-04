@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="col-md-6 offset-md-3 ">
+
+  {% if user.is_authenticated %}
+    <h1> Hello World</h1>
+  {% else %}
+    <br/>
+
+    <form method="POST" action="{% url 'home' %}">
+      {% csrf_token %}
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+      <style>
+    body {
+      background-color: #f8f9fa;      
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 20; /* Remove default margin */
+    }
+    .login-form {
+      width: 400px;
+      height: 450px;
+      padding: 60px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(255, 0, 64, 0.4); /* Strawberry color shadow */
+      transition: box-shadow 0.3s ease;
+    }
+    .login-form:hover {
+      box-shadow: 0 8px 16px rgba(255, 0, 64, 0.6); /* Lighter strawberry color shadow on hover */
+    }
+    .login-form h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #007bff;
+    }
+    .form-group {
+      margin-bottom: 25px;
+    }
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #333;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .btn-login {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      color: #fff;
+      background-color: #007bff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .btn-login:hover {
+      background-color: #0056b3;
+    }
+</style>
+
+<div class="login-form">
+  <h2>Login</h2>
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input type="text" id="username" name="username" placeholder="Enter your username" required>
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+  </div>
+  <button type="submit" class="btn-login">Login</button>
+</div>
+</form>
+
+{% endif %}
+
+</div>
+
+{% endblock %}
+
+

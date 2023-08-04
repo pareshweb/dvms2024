@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visitor Management System</title>
+  <!-- Link Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Custom CSS to enhance the navbar appearance */
+    .navbar {
+      background-color: black;
+      color: white;
+      box-shadow: 0 2px 5px #ff1493;
+    }
+
+    .navbar-brand {
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+      transition: color 0.3s, font-weight 0.3s;
+    }
+
+    .navbar-brand:hover {
+      color: #ff007f;
+      font-weight: bold;
+    }
+
+    .navbar-nav .nav-item {
+      margin-right: 15px;
+    }
+
+    .navbar-nav .nav-item .nav-link {
+      color: white;
+      padding: 8px 12px;
+      border-radius: 50px;
+      transition: background-color 0.3s;
+    }
+
+    .navbar-nav .nav-item .nav-link:hover {
+      background-color: #ff007f;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'home' %}" > Visitor Management System</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+
+          {% if user.is_authenticated %}
+
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+          </li>
+
+          {% else %}
+          
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'home' %}">Login</a>
+          </li>
+
+          
+          {% endif %}
+        </ul>
+        
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  
+  <!-- Link Bootstrap JS and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
